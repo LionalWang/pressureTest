@@ -11,6 +11,7 @@ TIMES = 1000
 MAX_TIME = 0
 ST1 = 0
 LT1 = 0
+TOTAL_TIME = 0
 
 
 def visit():
@@ -20,6 +21,7 @@ def visit():
     global MAX_TIME
     global ST1
     global LT1
+    global TOTAL_TIME
 
     st = time.time()
     response = urllib2.urlopen(URL)
@@ -30,6 +32,7 @@ def visit():
     if json_object['status'] == 200:
         TOTAL += 1
         SUCC += 1
+        TOTAL_TIME += time_span
         if time_span > MAX_TIME:
             MAX_TIME = time_span
         if time_span < 1:
@@ -61,6 +64,7 @@ def main():
     print "Success: %s" % SUCC
     print "Fail: %s" % FAIL
     print "Max time: %s" % MAX_TIME
+    print "Average time: %f" % (TOTAL_TIME/SUCC)
     print "Small than 1s: %s, percent: %0.2f" % (ST1, float(ST1) / TOTAL)
     print "Large than 1s: %s, percent: %0.2f" % (LT1, float(LT1) / TOTAL)
 
