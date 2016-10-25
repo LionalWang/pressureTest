@@ -1,6 +1,5 @@
 import json
 import urllib2
-import threading
 import time
 
 URL = 'http://api.miaopai.com/m/ad_hot.json?version=6.6.1.0&require=0'
@@ -8,7 +7,7 @@ TOTAL = 0
 SUCC = 0
 FAIL = 0
 TIMEOUT = 0
-TIMES = 100
+TIMES = 10
 MAX_TIME = 0
 ST1 = 0
 LT1 = 0
@@ -27,7 +26,7 @@ def visit():
 
     st = time.time()
     try:
-        response = urllib2.urlopen(URL, timeout=2)
+        response = urllib2.urlopen(URL)
     except Exception:
         print "timeout"
         TIMEOUT += 1
@@ -56,17 +55,10 @@ def visit():
 
 def main():
     print "====Test start===="
-    threads = []
 
     for i in range(0, TIMES):
-        t = threading.Thread(target=visit)
-        threads.append(t)
-
-    for i in range(0, TIMES):
-        threads[i].start()
-
-    for i in range(0, TIMES):
-        threads[i].join()
+        visit()
+        time.sleep(2)
 
     print "Total: %s" % TOTAL
     print "Success: %s" % SUCC
