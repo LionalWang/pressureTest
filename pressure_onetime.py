@@ -2,12 +2,12 @@ import json
 import urllib2
 import time
 
-URL = 'http://api.miaopai.com/m/ad_hot.json?version=6.6.1.0&require=0'
+URL = 'http://m.miaopai.com/m/cate2_channel.json?cateid=136&columns=1&extend=1&os=ios&page=1&per=20&timestamp=1478226673552&token=gfOAJQhSpSw0NPRF9U9JegIlegdAVfvi&type=news&unique_id=cc59c089d5e720454a56260558620002520823219&uuid=cc59c089d5e720454a56260558620002520823219&vend=miaopai&version=6.6.1'
 TOTAL = 0
 SUCC = 0
 FAIL = 0
 TIMEOUT = 0
-TIMES = 10
+TIMES = 15
 MAX_TIME = 0
 MIN_TIME = 1
 ST1 = 0
