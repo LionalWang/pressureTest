@@ -83,8 +83,8 @@ def read():
         sheet.write(0, 2, "Success count")
         sheet.write(0, 3, "Fail count")
         sheet.write(0, 4, "Timeout count")
-        sheet.write(0, 5, "Largest time")
-        sheet.write(0, 6, "Shortest time")
+        sheet.write(0, 5, "Shortest time")
+        sheet.write(0, 6, "Largest time")
         sheet.write(0, 7, "Average time")
         sheet.write(0, 8, "Lager than 1 second")
 
